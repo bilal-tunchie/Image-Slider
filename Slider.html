@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Slider</title>
+
+    <!-- CSS -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            }
+        body {
+            font-family: Tahoma, Arial;
+        }
+        .slider-container {
+            /* background-color: #009688; */
+            margin: 10px auto;
+            width: 800px;
+            height: 250px;
+            position: relative;
+        }
+        .slider-container img {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+            z-index: 1;
+        }
+        .slider-container img.active {
+            opacity: 1;
+        }
+        .slider-container .slide-number {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            background-color: rgba(0, 0, 0, .6);
+            color: #FFF;
+            padding: 5px 10px;
+            font-size: 20px;
+            z-index: 2;
+            border-radius: 6px;
+        }
+        .slider-controls {
+            width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slider-controls .prev,
+        .slider-controls .next {
+            background-color: #009688;
+            color: #FFF;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 5px;
+            user-select: none;
+            width: 20%;
+        }
+        .slider-controls .prev {
+            float: left;
+        }
+        .slider-controls .next {
+            float: right;
+        }
+        .slider-controls .prev.disabled,
+        .slider-controls .next.disabled {
+            background-color: rgba(0, 150, 136, 0.5);
+            cursor: no-drop;
+        }
+        .slider-controls .indicators {
+            width: 60%;
+            float: left;
+        }
+        .slider-controls .indicators ul {
+            list-style: none;
+            margin: 0;
+            text-align: center;
+        }
+        .slider-controls .indicators ul li {
+            display: inline-block;
+            background-color: #F6F6F6;
+            color: #333;
+            font-weight: bold;
+            height: 28px;
+            width: 28px;
+            border-radius: 4px;
+            margin: 0 2px;
+            line-height: 28px;
+            cursor: pointer;
+        }
+        .slider-controls .indicators ul li.active {
+            background-color: #009688;
+            color: #FFF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="slider-container">
+        <div id="slide-number" class="slide-number">Slide #6</div>
+        <img src="./Slider-imgs/01.png" alt="" />
+        <img src="Slider-imgs/02.png" alt="" />
+        <img src="Slider-imgs/03.png" alt="" />
+        <img src="Slider-imgs/04.jpg" alt="" />
+        <img src="Slider-imgs/05.jpg" alt="" />
+    </div>
+    <div class="slider-controls">
+        <span id="prev" class="prev">Previous</span>
+        <span id="indicators" class="indicators"></span>
+        <span id="next" class="next">Next</span>
+    </div>
+    <script src="./Slider.js"></script>
+</body>
+</html>
